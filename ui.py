@@ -22,4 +22,4 @@ with gr.Blocks(theme=gr.themes.Soft()) as demo:
     order_btn.click(order_pizza_ui, inputs=[item, size, quantity], outputs=[message, price])
 
 if __name__ == "__main__":
-    demo.launch()
+    demo.launch(server_name="0.0.0.0", server_port=7860)
