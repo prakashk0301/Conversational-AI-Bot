@@ -1,4 +1,4 @@
-# 🐳 PizzaBot – AI Pizza Order Bot
+# 🐳 – AI Bot
 
 An AI-powered pizza ordering assistant with a FastAPI backend and Gradio frontend. Run locally using Docker for easy setup.
 
