@@ -3,7 +3,6 @@ from pydantic import BaseModel
 
 app = FastAPI(title="PizzaBot API")
 
-# Request/Response models
 class OrderRequest(BaseModel):
     item: str
     size: str
@@ -13,7 +12,6 @@ class OrderResponse(BaseModel):
     message: str
     price: float
 
-# Price chart
 PRICES = {
     "margherita": {"small": 199, "medium": 299, "large": 399},
     "farmhouse": {"small": 249, "medium": 349, "large": 499},
@@ -26,7 +24,7 @@ def order_pizza(order: OrderRequest):
     qty = order.quantity
 
     if item not in PRICES or size not in PRICES[item]:
-        return {"message": "Sorry, invalid pizza selection.", "price": 0}
+        return {"message": "❌ Invalid pizza selection.", "price": 0}
 
     total = PRICES[item][size] * qty
-    return {"message": f"{qty} {size.capitalize()} {item.capitalize()} ordered!", "price": total}
+    return {"message": f"✅ {qty} {size.capitalize()} {item.capitalize()} ordered!", "price": total}
